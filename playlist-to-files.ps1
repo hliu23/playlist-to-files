@@ -1,9 +1,7 @@
 ﻿param([string]$path, [string]$destination="$path\files")
 
-
-Add-Type -AssemblyName System.Web
-
 try {
+    Add-Type -AssemblyName System.Web
     if (Test-Path $path) {
         $playlists = @(Get-ChildItem -Path $path -Filter "*.m3u8")
         if ($playlists.length -eq 0) {
